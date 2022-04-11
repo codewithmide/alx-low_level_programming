@@ -3,17 +3,10 @@
 #include <stdio.h>
 
 /**
-
  * print_dog - function that prints a struct dog
-
- * @d: points to struct of the dog information
-
- *
-
+ * @d: points to struct of the dog informati
  * Description: General information abaout a dog
-
  */
-
 void print_dog(struct dog *d)
 {
 	if (d == 0)
