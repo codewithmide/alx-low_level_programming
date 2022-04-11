@@ -42,7 +42,7 @@ char *_strdup(char *str)
 	}
 	while (x < size)
 	{
-		*(newString + x) = *(str + x)
+		*(newString + x) = *(str + x);
 		x++;
 	}
 	*(newString + x) = '\0';
