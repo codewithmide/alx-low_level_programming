@@ -1,76 +1,50 @@
-#include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdarg.h>
+#include "variadic_functions.h"
 /**
- * print_int - prints int
- * @list: arguments from print_all
- */
-void print_int(va_list list)
-{
-	printf("%d", va_arg(list, int));
-}
-/**
- * print_float - prints float
- * @list: arguments from print_all
- */
-void print_float(va_list list)
-{
-	printf("%f", va_arg(list, double));
-}
-/**
- * print_char - prints int
- * @list: arguments from print_all
- */
-void print_char(va_list list)
-{
-	printf("%c", va_arg(list, int));
-}
-/**
- * print_str - prints string
- * @list: arguments from print_all
- */
-void print_str(va_list list)
-{
-	char *s = va_arg(list, char *);
-
-	s == NULL ? printf("(nil)") : printf("%s", s)
-}
-/**
- * print_all - prints any type
- * @format: arguments to print
+ * print_all - print char, integer, float and string
+ * @format: format
  */
 void print_all(const char * const format, ...)
 {
-	in_format arr_st_fm[] = {
-		{"c", print_ch},
-		{"i", print_int},
-		{"s", print_st},
-		{"f", print_flt},
-		{NULL, NULL}
-	};
-	int a, b;
-	va_list ls_args;
-	char *empty = "";
-	char *separator = ", ";
+	va_list list;
+	unsigned int j = 0, start = 0;
+	char *p;
 
-	va_start(ls_args, format);
-	a = 0;
-	while (format != NULL)
+	va_start(list, format);
+	while (format && format[j] != '\0')
 	{
-		b = 0;
-		while (arr_st_fm[b].n != NULL)
-		{
-			if (format[a] == arr_st_fm[b].n[0])
-			{
-				printf("%s", empty);
-				arr_st_fm[b].func(ls_args);
-				empty = separator;
-			}
-			b++;
-		}
-		a++;
+		switch (format[j])
+		{ case 'c':
+				switch (start)
+				{ case 1: printf(", "); }
+				start = 1;
+				printf("%c", va_arg(list, int));
+				break;
+		case 'i':
+			switch (start)
+			{ case 1: printf(", "); }
+			start = 1;
+			printf("%i", va_arg(list, int));
+			break;
+		case 'f':
+			switch (start)
+			{ case 1: printf(", "); }
+			start = 1;
+			printf("%f", va_arg(list, double));
+			break;
+		case's':
+			switch (start)
+			{ case 1: printf(", "); }
+			start = 1;
+			p = va_arg(list, char*);
+			if (p)
+			{ printf("%s", p);
+				break; }
+			printf("%p", p);
+			break; }
+		j++;
 	}
-	va_end(ls_args);
 	printf("\n");
+	va_end(list);
 }
