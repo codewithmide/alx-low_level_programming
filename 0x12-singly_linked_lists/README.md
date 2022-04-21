@@ -1,16 +1,19 @@
 0x12. C - Singly linked lists
 A linked list is a linear data structure where each element is a separate object. Linked list elements are not stored at contiguous location; the elements are linked using pointers. Each node of a list is made up of two items - the data and a reference to the next node. The last node has a reference to null.
 
-Link list representation
+![image](https://user-images.githubusercontent.com/81376427/164456812-e11a63bc-5402-4feb-bea1-076e217fc2f1.png)
 
 Array VS Linked List
-link list vs array
+
+![image](https://user-images.githubusercontent.com/81376427/164456884-3dbf91b6-3fc0-45bb-966f-0d08e3aa6b60.png)
 
 LINKED LIST	ARRAY
 [ ] We can add elements indefinitely to a linked list	[x] We can add elements indefinitely to an array
 [x] Linked list can contain as value a structure	[x] Array can contain as value a structure
 [x] We can easily removed an element from a Linked list	[ ] We can easily removed an element from an Array
 [ ] Memory is aligned for a Linked list - each elements are back to back in the memory	[x] Memory is aligned for an Array - each elements are back to back in the memory
+
+
 What is a data structure?
 Data structures, as the term implies, are a way of structuring data in order to efficiently store, find, use, and create data, depending on the task at hand. If data is a plate of food, data structures are your utensils (algorithms would be how to effectively use those utensils in this analogy). Just as you will likely select a spoon to eat a bowl of soup rather than a knife, you will learn over time to select and properly use data structures which fit the nature of the data you are working with.
 
@@ -34,6 +37,7 @@ typedef struct list_s
 	unsigned int len;
 	struct list_s *next;
 } list_t;
+
 After that create a function that print the content of each node and count every node on a int variable
 
 #include "lists.h"
