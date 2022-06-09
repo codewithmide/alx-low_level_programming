@@ -5,7 +5,7 @@
  * @index: The position in de ll
  * Return: 1 if it succeeded or -1 if it failed
  */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)	
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *p1, *res_mem = *head;
 	unsigned int counter = 0;
